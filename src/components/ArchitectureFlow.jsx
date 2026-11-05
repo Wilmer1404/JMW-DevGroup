@@ -254,6 +254,14 @@ export default function ArchitectureFlow({ id = 'arquitectura' }) {
           </div>
         </div>
 
+        {/* Instrucción visual interactiva clara */}
+        <div className="flex items-center gap-2 text-cyan-400/80 mb-6 text-sm italic">
+          <svg className="w-4 h-4 animate-pulse shrink-0 text-[#00F0FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+          </svg>
+          <span>Haz clic o toca los iconos para explorar el flujo de orquestación.</span>
+        </div>
+
         {/* LAYOUT: DIAGRAMA DIVIDIDO (SPLIT VIEW APILADO: COLUMNA EN MÓVIL/TABLET, LATERAL EN XL) */}
         <div className="flex flex-col xl:flex-row gap-8 items-start w-full">
           
@@ -537,13 +545,22 @@ export default function ArchitectureFlow({ id = 'arquitectura' }) {
                     return (
                       <div
                         key={node.id}
-                        onClick={() => setHoveredNodeId(hoveredNodeId === node.id ? null : node.id)}
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => setHoveredNodeId(node.id)}
                         onMouseEnter={() => setHoveredNodeId(node.id)}
-                        onMouseLeave={() => setHoveredNodeId(null)}
+                        onTouchStart={() => setHoveredNodeId(node.id)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            setHoveredNodeId(node.id);
+                          }
+                        }}
                         style={{ left: `${node.x}px`, top: `${node.y}px` }}
-                        className={`absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 transition-transform duration-300 ${
+                        className={`absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 transition-transform duration-300 focus:outline-none ${
                           isHovered ? 'scale-115 z-30' : ''
                         }`}
+                        aria-label={`Inspeccionar ${node.name}`}
                       >
                         <div
                           className={`relative flex flex-col items-center justify-center text-center p-4 rounded-2xl transition-all duration-300 w-[130px] min-h-[110px] ${
@@ -724,7 +741,7 @@ export default function ArchitectureFlow({ id = 'arquitectura' }) {
                     </h3>
 
                     <p className="text-gray-400 text-sm leading-relaxed max-w-xs mb-8">
-                      Mueve el cursor sobre los nodos de la arquitectura para inspeccionar el flujo de orquestación y los vectores de remediación.
+                      Haz clic o toca los nodos de la arquitectura para inspeccionar el flujo de orquestación y los vectores de remediación.
                     </p>
 
                     <div className="w-full flex flex-col gap-2 pt-6 border-t border-white/10 text-left">
