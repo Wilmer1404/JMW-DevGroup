@@ -50,4 +50,64 @@
       linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   }
+
+  /* Orbit Animations */
+  @keyframes orbit-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes orbit-counter-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .animate-orbit {
+    animation: orbit-spin 45s linear infinite;
+  }
+
+  .animate-orbit-counter {
+    animation: orbit-counter-spin 45s linear infinite;
+  }
+
+  .pause-on-hover:hover .animate-orbit,
+  .pause-on-hover:hover .animate-orbit-counter {
+    animation-play-state: paused;
+  }
+
+  /* Architecture Flow SVG Dash Animation */
+  @keyframes dash {
+    to {
+      stroke-dashoffset: -20;
+    }
+  }
+
+  .animate-flow-dash {
+    animation: dash 2.5s linear infinite;
+  }
+
+  /* Custom horizontal scrollbar for diagram */
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 7px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #080B11;
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #1e2638;
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #00F0FF;
+  }
 }
+

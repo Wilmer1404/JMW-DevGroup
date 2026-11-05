@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, Server, Terminal, Database } from 'lucide-react';
 
 export default function IntegrationSection() {
   const checkItems = [
@@ -27,102 +27,123 @@ export default function IntegrationSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-6 relative flex items-center justify-center min-h-[420px] sm:min-h-[480px]"
+            className="lg:col-span-6 relative flex items-center justify-center min-h-[440px] sm:min-h-[500px]"
           >
             {/* Background ambient glow */}
-            <div className="absolute w-60 h-60 rounded-full bg-[#00F0FF]/10 blur-[80px] pointer-events-none" />
+            <div className="absolute w-64 h-64 rounded-full bg-[#00F0FF]/10 blur-[85px] pointer-events-none" />
 
-            {/* Connecting Curved Lines SVG */}
+            {/* Connecting Curved Lines SVG (Monitoreo seguro continuo en cian tenue) */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
               viewBox="0 0 460 460"
               fill="none"
             >
-              {/* Path to Node A (Top-Left) */}
+              {/* Path to Account-Prod (Top-Left) */}
               <path
-                d="M100 120 Q 150 200 230 230"
-                stroke="#00F0FF"
-                strokeOpacity="0.25"
+                d="M 115 115 Q 165 190 230 230"
+                stroke="rgba(22, 78, 99, 0.55)"
+                className="stroke-cyan-900/50"
                 strokeWidth="1.5"
                 strokeDasharray="4 5"
               />
-              {/* Path to Node B (Top-Right) */}
+              {/* Path to Data Lake (Top-Right) */}
               <path
-                d="M360 120 Q 310 200 230 230"
-                stroke="#00F0FF"
-                strokeOpacity="0.25"
+                d="M 345 115 Q 295 190 230 230"
+                stroke="rgba(22, 78, 99, 0.55)"
+                className="stroke-cyan-900/50"
                 strokeWidth="1.5"
                 strokeDasharray="4 5"
               />
-              {/* Path to Node C (Bottom-Left) */}
+              {/* Path to Account-Dev (Bottom-Left) */}
               <path
-                d="M100 340 Q 150 260 230 230"
-                stroke="#00F0FF"
-                strokeOpacity="0.25"
+                d="M 115 345 Q 165 270 230 230"
+                stroke="rgba(22, 78, 99, 0.55)"
+                className="stroke-cyan-900/50"
                 strokeWidth="1.5"
                 strokeDasharray="4 5"
               />
             </svg>
 
-            {/* Central Node: JMW CONTROL PLANE */}
+            {/* Central Node: JMW CONTROL PLANE con AWS IAM */}
             <div className="relative z-10">
               <div className="relative group">
                 {/* Glow ring */}
-                <div className="absolute -inset-1 rounded-3xl bg-[#00F0FF]/20 blur-md" />
+                <div className="absolute -inset-1 rounded-3xl bg-[#00F0FF]/20 blur-md group-hover:bg-[#00F0FF]/30 transition-all duration-500" />
                 
                 {/* Center Node Container */}
-                <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-3xl bg-[#0A0D13]/95 border border-[#00F0FF]/40 backdrop-blur-xl flex flex-col items-center justify-center p-4 shadow-[0_0_35px_rgba(0,240,255,0.2)]">
-                  {/* Dashed animated border ring */}
+                <div className="relative w-40 h-40 sm:w-44 sm:h-44 rounded-3xl bg-[#0A0D13]/95 border border-[#00F0FF]/40 backdrop-blur-xl flex flex-col items-center justify-center p-4 shadow-[0_0_35px_rgba(0,240,255,0.2)]">
+                  {/* Dashed border ring */}
                   <div className="absolute inset-2 rounded-2xl border border-dashed border-[#00F0FF]/30 pointer-events-none" />
                   
-                  <span className="font-extrabold text-base sm:text-lg tracking-wider text-white">
+                  <span className="font-extrabold text-lg sm:text-xl tracking-wider text-white">
                     JMW
                   </span>
-                  <span className="font-mono text-[9px] font-semibold tracking-[0.2em] text-[#00F0FF] mt-1">
+                  <span className="font-mono text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] text-[#00F0FF] mt-0.5">
                     CONTROL PLANE
                   </span>
+
+                  {/* Integración Oficial AWS IAM (Roles Multi-cuenta) */}
+                  <div className="mt-2.5 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/10 shadow-inner">
+                    <img
+                      src="/image/Identity and Access Management.svg"
+                      alt="AWS IAM"
+                      className="w-3.5 h-3.5 object-contain"
+                    />
+                    <span className="font-mono text-[9px] font-semibold text-gray-300 tracking-wider">
+                      AWS IAM Roles
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Node A: PROD (Top Left) */}
+            {/* Nuevo Nodo 1: Cuenta de Producción (Arriba Izquierda) */}
             <motion.div
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute top-10 left-8 sm:left-14 z-20"
+              className="absolute top-6 left-3 sm:top-8 sm:left-8 z-20"
             >
-              <div className="flex flex-col items-center justify-center w-18 h-18 sm:w-20 sm:h-20 rounded-2xl bg-[#080B10]/90 border border-white/10 p-3 shadow-xl backdrop-blur-md">
-                <span className="font-bold text-base sm:text-lg text-white">A</span>
-                <span className="font-mono text-[9px] tracking-wider text-gray-500 uppercase mt-0.5">
-                  PROD
+              <div className="flex flex-col items-center justify-center w-32 sm:w-36 py-3 px-2.5 rounded-2xl bg-[#0A0A0A]/95 border border-white/10 shadow-xl backdrop-blur-md hover:border-cyan-500/30 transition-all duration-300 group">
+                <Server className="w-5 h-5 text-gray-200 mb-1 group-hover:text-cyan-400 transition-colors" />
+                <span className="font-bold text-xs sm:text-sm text-white tracking-wide text-center leading-tight">
+                  Account-Prod
+                </span>
+                <span className="font-mono text-[9px] sm:text-[10px] tracking-wider text-gray-400 uppercase mt-0.5 text-center leading-tight">
+                  AWS Environment
                 </span>
               </div>
             </motion.div>
 
-            {/* Node B: DATA (Top Right) */}
+            {/* Nuevo Nodo 3: Repositorio de Datos (Arriba Derecha) */}
             <motion.div
               animate={{ y: [0, 4, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="absolute top-10 right-8 sm:right-14 z-20"
+              className="absolute top-6 right-3 sm:top-8 sm:right-8 z-20"
             >
-              <div className="flex flex-col items-center justify-center w-18 h-18 sm:w-20 sm:h-20 rounded-2xl bg-[#080B10]/90 border border-white/10 p-3 shadow-xl backdrop-blur-md">
-                <span className="font-bold text-base sm:text-lg text-white">B</span>
-                <span className="font-mono text-[9px] tracking-wider text-gray-500 uppercase mt-0.5">
-                  DATA
+              <div className="flex flex-col items-center justify-center w-32 sm:w-36 py-3 px-2.5 rounded-2xl bg-[#0A0A0A]/95 border border-white/10 shadow-xl backdrop-blur-md hover:border-cyan-500/30 transition-all duration-300 group">
+                <Database className="w-5 h-5 text-gray-200 mb-1 group-hover:text-cyan-400 transition-colors" />
+                <span className="font-bold text-xs sm:text-sm text-white tracking-wide text-center leading-tight">
+                  Data Lake
+                </span>
+                <span className="font-mono text-[9px] sm:text-[10px] tracking-wider text-gray-400 uppercase mt-0.5 text-center leading-tight">
+                  S3 / RDS
                 </span>
               </div>
             </motion.div>
 
-            {/* Node C: DEV (Bottom Left) */}
+            {/* Nuevo Nodo 2: Cuenta de Desarrollo/Test (Abajo Izquierda) */}
             <motion.div
               animate={{ y: [0, -5, 0] }}
               transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-              className="absolute bottom-10 left-8 sm:left-14 z-20"
+              className="absolute bottom-6 left-3 sm:bottom-8 sm:left-8 z-20"
             >
-              <div className="flex flex-col items-center justify-center w-18 h-18 sm:w-20 sm:h-20 rounded-2xl bg-[#080B10]/90 border border-white/10 p-3 shadow-xl backdrop-blur-md">
-                <span className="font-bold text-base sm:text-lg text-white">C</span>
-                <span className="font-mono text-[9px] tracking-wider text-gray-500 uppercase mt-0.5">
-                  DEV
+              <div className="flex flex-col items-center justify-center w-32 sm:w-36 py-3 px-2.5 rounded-2xl bg-[#0A0A0A]/95 border border-white/10 shadow-xl backdrop-blur-md hover:border-cyan-500/30 transition-all duration-300 group">
+                <Terminal className="w-5 h-5 text-gray-200 mb-1 group-hover:text-cyan-400 transition-colors" />
+                <span className="font-bold text-xs sm:text-sm text-white tracking-wide text-center leading-tight">
+                  Account-Dev
+                </span>
+                <span className="font-mono text-[9px] sm:text-[10px] tracking-wider text-gray-400 uppercase mt-0.5 text-center leading-tight">
+                  Sandbox
                 </span>
               </div>
             </motion.div>

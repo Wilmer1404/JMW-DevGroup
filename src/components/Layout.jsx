@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import FooterCTA from './FooterCTA';
+import Footer from './Footer';
 import DemoModal from './DemoModal';
 
 export default function Layout({ children }) {
@@ -23,8 +24,11 @@ export default function Layout({ children }) {
         })}
       </main>
 
-      {/* Footer Section */}
+      {/* Call to Action Section */}
       <FooterCTA onOpenDemo={() => setDemoModalOpen(true)} />
+
+      {/* Footer Legal & Operational Status */}
+      <Footer />
 
       {/* Interactive Demo Request Modal */}
       <DemoModal

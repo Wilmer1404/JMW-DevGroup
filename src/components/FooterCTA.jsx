@@ -18,7 +18,7 @@ export default function FooterCTA({ onOpenDemo }) {
   };
 
   return (
-    <footer className="relative bg-[#050505] pt-28 pb-16 overflow-hidden border-t border-white/5">
+    <section className="relative bg-[#050505] pt-28 pb-20 overflow-hidden border-t border-white/5">
       {/* Subtle bottom radial gradient to create depth */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[380px] bg-[radial-gradient(ellipse_at_bottom,_rgba(0,240,255,0.12)_0%,_transparent_70%)] pointer-events-none -z-10" />
 
@@ -82,27 +82,11 @@ export default function FooterCTA({ onOpenDemo }) {
         </motion.div>
 
         {/* Trust micro-text */}
-        <p className="text-xs text-gray-500 mb-20 font-mono">
+        <p className="text-xs text-gray-500 font-mono">
           Sin tarjeta de crédito requerida • Despliegue con plantilla CloudFormation oficial
         </p>
 
-        {/* Footer Legal & Nav bar */}
-        <div className="w-full pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <div className="flex items-center gap-2">
-            <span className="font-extrabold text-white">JMW</span>
-            <span className="text-gray-400">DevGroup</span>
-            <span className="text-gray-600 ml-2">© 2026 Todos los derechos reservados.</span>
-          </div>
-
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-gray-300 transition-colors">Privacidad</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">Términos</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">Seguridad Cloud</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">Status</a>
-          </div>
-        </div>
-
       </div>
-    </footer>
+    </section>
   );
 }
