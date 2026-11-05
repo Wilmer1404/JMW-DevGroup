@@ -54,11 +54,16 @@ export default function Navbar({ onOpenDemo }) {
           }}
           className="flex items-center cursor-pointer focus:outline-none"
         >
-          <img
-            src="/image/jmw.svg"
-            alt="JMW DevGroup Logo"
-            className="h-8 w-auto md:h-10 object-contain"
-          />
+          <div className="flex items-center gap-2">
+            <img 
+              src="/image/jmw.svg" 
+              alt="JMW Icon" 
+              className="h-5 md:h-6 w-auto object-contain" 
+            />
+            <span className="text-xl font-bold tracking-tight text-white">
+              DevGroup
+            </span>
+          </div>
         </a>
 
         {/* Center Nav Links */}
