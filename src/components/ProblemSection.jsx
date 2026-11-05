@@ -31,7 +31,7 @@ export default function ProblemSection({ id = 'problema' }) {
 
   return (
     <section id={id} className="py-24 md:py-32 relative bg-[#050505] scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col mb-16">
@@ -59,8 +59,8 @@ export default function ProblemSection({ id = 'problema' }) {
           </div>
         </div>
 
-        {/* 3 Bento Cards Grid con advertencia visual de riesgo al hover */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* 3 Bento Cards Grid con advertencia visual de riesgo al hover (Responsive 1/2/3 columnas) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {problemCards.map((card, idx) => {
             const Icon = card.icon;
             const isHighlighted = activeCard === idx;
@@ -73,7 +73,7 @@ export default function ProblemSection({ id = 'problema' }) {
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
                 onMouseEnter={() => setActiveCard(idx)}
-                className={`relative rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 min-h-[310px] cursor-pointer overflow-hidden group ${
+                className={`w-full relative rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 min-h-[310px] cursor-pointer overflow-hidden group ${
                   isHighlighted
                     ? 'bg-[#090C12] border border-red-900/60 shadow-[0_0_30px_rgba(220,38,38,0.15)]'
                     : 'bg-[#0A0D13]/70 border border-white/10 hover:border-red-900/50 hover:shadow-[0_0_20px_rgba(220,38,38,0.12)]'

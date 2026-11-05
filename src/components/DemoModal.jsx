@@ -48,7 +48,7 @@ export default function DemoModal({ isOpen, onClose }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-lg rounded-2xl bg-[#090C12] border border-[#00F0FF]/30 p-7 sm:p-9 shadow-[0_0_50px_rgba(0,240,255,0.2)] overflow-hidden z-10"
+            className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto custom-scrollbar rounded-2xl bg-[#090C12] border border-[#00F0FF]/30 p-6 sm:p-9 shadow-[0_0_50px_rgba(0,240,255,0.2)] z-10"
           >
             {/* Ambient inner glow */}
             <div className="absolute top-0 right-0 w-48 h-48 bg-[#00F0FF]/10 rounded-full blur-2xl pointer-events-none" />

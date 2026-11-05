@@ -8,7 +8,7 @@ export default function ImpactSection({ id = 'impacto' }) {
       {/* Subtle background ambient blur */}
       <div className="absolute top-1/2 right-10 w-[450px] h-[450px] bg-[#00F0FF]/10 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
           {/* Left Column: Heading & Stat */}

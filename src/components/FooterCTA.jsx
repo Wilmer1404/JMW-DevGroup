@@ -22,7 +22,7 @@ export default function FooterCTA({ onOpenDemo }) {
       {/* Subtle bottom radial gradient to create depth */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[380px] bg-[radial-gradient(ellipse_at_bottom,_rgba(0,240,255,0.12)_0%,_transparent_70%)] pointer-events-none -z-10" />
 
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         
         {/* Giant Headline */}
         <motion.h2
@@ -56,23 +56,23 @@ export default function FooterCTA({ onOpenDemo }) {
           className="w-full max-w-md mb-8"
         >
           {submitted ? (
-            <div className="flex items-center justify-center gap-2.5 p-4 rounded-full bg-[#00F0FF]/10 border border-[#00F0FF]/30 text-white">
-              <CheckCircle2 className="w-5 h-5 text-[#00F0FF]" />
+            <div className="flex items-center justify-center gap-2.5 p-4 rounded-2xl sm:rounded-full bg-[#00F0FF]/10 border border-[#00F0FF]/30 text-white">
+              <CheckCircle2 className="w-5 h-5 text-[#00F0FF] shrink-0" />
               <span className="text-sm font-medium">¡Gracias! Nos pondremos en contacto contigo de inmediato.</span>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="relative flex items-center">
+            <form onSubmit={handleSubmit} className="relative flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-0">
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Ingresa tu correo corporativo"
-                className="w-full bg-[#0B0E14] border border-white/15 focus:border-[#00F0FF]/60 rounded-full py-4 pl-6 pr-36 text-sm text-white placeholder-gray-500 focus:outline-none transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.4)]"
+                className="w-full bg-[#0B0E14] border border-white/15 focus:border-[#00F0FF]/60 rounded-full py-4 pl-6 pr-6 sm:pr-36 text-sm text-white placeholder-gray-500 focus:outline-none transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.4)]"
               />
               <button
                 type="submit"
-                className="absolute right-1.5 top-1.5 bottom-1.5 px-6 rounded-full bg-[#0A84FF] hover:bg-[#0070E0] text-white text-sm font-medium flex items-center gap-2 transition-all shadow-[0_0_15px_rgba(10,132,255,0.4)] hover:shadow-[0_0_25px_rgba(10,132,255,0.6)]"
+                className="relative sm:absolute sm:right-1.5 sm:top-1.5 sm:bottom-1.5 py-3.5 sm:py-0 px-6 rounded-full bg-[#0A84FF] hover:bg-[#0070E0] text-white text-sm font-medium flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(10,132,255,0.4)] hover:shadow-[0_0_25px_rgba(10,132,255,0.6)] cursor-pointer"
               >
                 <span>Comenzar</span>
                 <ArrowRight className="w-4 h-4" />

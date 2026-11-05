@@ -18,16 +18,16 @@ export default function IntegrationSection({ id = 'integracion' }) {
 
   return (
     <section id={id} className="py-24 md:py-32 relative bg-[#050505] overflow-hidden scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 lg:gap-14 items-center w-full">
           
-          {/* Left Column: Network Hub & Spoke Diagram */}
+          {/* Left Column: Network Hub & Spoke Diagram (Mobile-safe scaling) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-6 relative flex items-center justify-center min-h-[440px] sm:min-h-[500px]"
+            className="w-full relative flex items-center justify-center min-h-[380px] sm:min-h-[460px] md:min-h-[500px] scale-[0.8] xs:scale-[0.88] sm:scale-100 origin-center transition-transform"
           >
             {/* Background ambient glow */}
             <div className="absolute w-64 h-64 rounded-full bg-[#00F0FF]/10 blur-[85px] pointer-events-none" />
@@ -156,7 +156,7 @@ export default function IntegrationSection({ id = 'integracion' }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 flex flex-col items-start"
+            className="w-full flex flex-col items-start"
           >
             {/* Badge */}
             <div className="mb-6">

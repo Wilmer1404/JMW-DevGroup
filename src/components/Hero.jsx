@@ -53,15 +53,15 @@ export default function Hero({ onOpenDemo }) {
       <div className="absolute top-1/2 left-10 -translate-y-1/2 w-[450px] h-[450px] bg-[#0A84FF]/10 rounded-full blur-[170px] pointer-events-none -z-10" />
 
       {/* Contenedor Principal Centrado con espaciado equilibrado */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 w-full pt-4 lg:pt-16 pb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center justify-center w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 lg:pt-16 pb-8">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center justify-center w-full">
           
           {/* Lado Izquierdo: Textos y CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex flex-col items-start justify-center lg:pt-6"
+            className="w-full lg:col-span-6 flex flex-col items-start justify-center lg:pt-6"
           >
             {/* Badge superior */}
             <div className="inline-flex items-center gap-2.5 mb-6 lg:mb-7">
@@ -74,8 +74,8 @@ export default function Hero({ onOpenDemo }) {
               </span>
             </div>
 
-            {/* Titular H1 masivo */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[62px] xl:text-[68px] font-extrabold text-white tracking-[-0.03em] leading-[1.06] mb-6">
+            {/* Titular H1 fluido y escalable */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-[-0.03em] leading-[1.06] mb-6">
               Seguridad Zero-<br />
               Touch para tu<br />
               Infraestructura<br />
@@ -137,10 +137,10 @@ export default function Hero({ onOpenDemo }) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative flex items-center justify-center min-h-[520px] sm:min-h-[560px] w-full"
+            className="w-full lg:col-span-6 relative flex items-center justify-center min-h-[420px] sm:min-h-[500px] lg:min-h-[560px]"
           >
-            {/* Contenedor del escenario orbital */}
-            <div className="relative w-full max-w-[540px] h-[520px] flex items-center justify-center pause-on-hover">
+            {/* Contenedor del escenario orbital escalable para móviles */}
+            <div className="relative w-full max-w-[540px] h-[520px] flex items-center justify-center pause-on-hover scale-75 sm:scale-90 lg:scale-100 origin-center transition-transform duration-300">
               
               {/* Resplandor central */}
               <div className="absolute w-64 h-64 rounded-full bg-[#00F0FF]/15 blur-[85px] pointer-events-none" />

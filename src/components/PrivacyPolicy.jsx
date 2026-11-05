@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-[#050505] text-gray-300 py-24 px-6 sm:px-8 custom-scrollbar selection:bg-[#00F0FF]/25 selection:text-[#00F0FF]">
+    <div className="min-h-screen bg-[#050505] text-gray-300 py-24 px-4 sm:px-6 lg:px-8 custom-scrollbar selection:bg-[#00F0FF]/25 selection:text-[#00F0FF]">
       <div className="max-w-4xl mx-auto">
         {/* Botón de Regreso */}
         <a
@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
         </a>
 
         {/* Contenedor de Contenido */}
-        <div className="bg-[#0a0f16] border border-white/5 rounded-2xl p-8 sm:p-12 shadow-2xl">
+        <div className="bg-[#0a0f16] border border-white/5 rounded-2xl p-6 sm:p-12 shadow-2xl">
           {/* Título Principal */}
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-8 pb-4 border-b border-white/10">
             Política de Privacidad y Procesamiento de Telemetría

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Menu, X, ShieldCheck } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Navbar({ onOpenDemo }) {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,9 +24,11 @@ export default function Navbar({ onOpenDemo }) {
     }
   };
 
-  const handleMobileNav = (id) => {
-    setMobileMenuOpen(false);
-    scrollToSection(id);
+  const handleMobileNavigation = (id) => {
+    setIsMobileMenuOpen(false);
+    setTimeout(() => {
+      scrollToSection(id);
+    }, 150); // Pequeño delay para que la animación de cierre termine antes del scroll
   };
 
   return (
@@ -34,10 +36,10 @@ export default function Navbar({ onOpenDemo }) {
       className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-[#050505]/85 backdrop-blur-md border-b border-white/10 py-3.5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
-          : 'bg-transparent py-5'
+          : 'bg-[#050505]/80 backdrop-blur-md py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <button
           type="button"
@@ -111,62 +113,71 @@ export default function Navbar({ onOpenDemo }) {
           </button>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center">
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-gray-400 hover:text-white cursor-pointer"
-            aria-label="Abrir menú"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+        {/* 2. Animación del Ícono (Hamburguesa a "X") */}
+        <button 
+          type="button"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+          className="md:hidden relative z-50 flex flex-col items-center justify-center w-10 h-10 space-y-1.5 focus:outline-none cursor-pointer"
+          aria-label="Alternar menú"
+        >
+          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out origin-center ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
+          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out origin-center ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+        </button>
       </div>
 
-      {/* Mobile Dropdown */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 flex flex-col gap-4 animate-fadeIn">
-          <button
-            type="button"
-            onClick={() => handleMobileNav('problema')}
-            className="text-gray-300 hover:text-white py-2 text-base font-medium text-left cursor-pointer focus:outline-none"
-          >
-            El problema
-          </button>
-          <button
-            type="button"
-            onClick={() => handleMobileNav('arquitectura')}
-            className="text-gray-300 hover:text-white py-2 text-base font-medium text-left cursor-pointer focus:outline-none"
-          >
-            Arquitectura
-          </button>
-          <button
-            type="button"
-            onClick={() => handleMobileNav('impacto')}
-            className="text-gray-300 hover:text-white py-2 text-base font-medium text-left cursor-pointer focus:outline-none"
-          >
-            Impacto
-          </button>
-          <button
-            type="button"
-            onClick={() => handleMobileNav('integracion')}
-            className="text-gray-300 hover:text-white py-2 text-base font-medium text-left cursor-pointer focus:outline-none"
-          >
-            Integración
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              setMobileMenuOpen(false);
+      {/* 3. Animación del Menú Desplegable (Capa Superior) */}
+      <div 
+        className={`md:hidden absolute top-full left-0 w-full bg-[#050505]/95 backdrop-blur-xl border-b border-white/10 flex flex-col py-6 px-6 sm:px-8 gap-5 z-40 transform transition-all duration-300 ease-out origin-top shadow-2xl
+          ${isMobileMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}`}
+      >
+        <button
+          type="button"
+          onClick={() => handleMobileNavigation('problema')}
+          className="text-gray-300 hover:text-cyan-400 hover:translate-x-2 py-2 text-base font-medium text-left cursor-pointer focus:outline-none transition-all duration-200 ease-in-out border-b border-white/5 flex items-center justify-between group"
+        >
+          <span>El problema</span>
+          <ArrowRight className="w-3.5 h-3.5 text-cyan-400/0 group-hover:text-cyan-400 -translate-x-1 group-hover:translate-x-0 transition-all duration-200" />
+        </button>
+        <button
+          type="button"
+          onClick={() => handleMobileNavigation('arquitectura')}
+          className="text-gray-300 hover:text-cyan-400 hover:translate-x-2 py-2 text-base font-medium text-left cursor-pointer focus:outline-none transition-all duration-200 ease-in-out border-b border-white/5 flex items-center justify-between group"
+        >
+          <span>Arquitectura</span>
+          <ArrowRight className="w-3.5 h-3.5 text-cyan-400/0 group-hover:text-cyan-400 -translate-x-1 group-hover:translate-x-0 transition-all duration-200" />
+        </button>
+        <button
+          type="button"
+          onClick={() => handleMobileNavigation('impacto')}
+          className="text-gray-300 hover:text-cyan-400 hover:translate-x-2 py-2 text-base font-medium text-left cursor-pointer focus:outline-none transition-all duration-200 ease-in-out border-b border-white/5 flex items-center justify-between group"
+        >
+          <span>Impacto</span>
+          <ArrowRight className="w-3.5 h-3.5 text-cyan-400/0 group-hover:text-cyan-400 -translate-x-1 group-hover:translate-x-0 transition-all duration-200" />
+        </button>
+        <button
+          type="button"
+          onClick={() => handleMobileNavigation('integracion')}
+          className="text-gray-300 hover:text-cyan-400 hover:translate-x-2 py-2 text-base font-medium text-left cursor-pointer focus:outline-none transition-all duration-200 ease-in-out border-b border-white/5 flex items-center justify-between group"
+        >
+          <span>Integración</span>
+          <ArrowRight className="w-3.5 h-3.5 text-cyan-400/0 group-hover:text-cyan-400 -translate-x-1 group-hover:translate-x-0 transition-all duration-200" />
+        </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            setTimeout(() => {
               onOpenDemo();
-            }}
-            className="mt-2 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-medium text-white bg-[#0A84FF] shadow-[0_0_20px_rgba(10,132,255,0.4)] cursor-pointer"
-          >
-            <span>Solicitar demo</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-      )}
+            }, 150);
+          }}
+          className="mt-2 w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-medium text-white bg-[#0A84FF] hover:bg-[#0070E0] shadow-[0_0_20px_rgba(10,132,255,0.4)] cursor-pointer transition-all active:scale-[0.98]"
+        >
+          <span>Solicitar demo</span>
+          <ArrowRight className="w-4 h-4" />
+        </button>
+      </div>
     </nav>
   );
 }

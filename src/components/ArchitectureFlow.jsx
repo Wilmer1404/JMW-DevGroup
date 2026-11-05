@@ -228,7 +228,7 @@ export default function ArchitectureFlow({ id = 'arquitectura' }) {
       {/* Fondo con brillo tenue */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-[#00F0FF]/5 rounded-full blur-[180px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Encabezado */}
         <div className="flex flex-col mb-12">
@@ -239,14 +239,14 @@ export default function ArchitectureFlow({ id = 'arquitectura' }) {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end justify-between">
-            <div className="lg:col-span-8">
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-end justify-between">
+            <div className="xl:col-span-8">
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-[-0.03em] leading-[1.08]">
                 Del hallazgo a la resolución.<br />
                 Sin tocar un solo botón.
               </h2>
             </div>
-            <div className="lg:col-span-4">
+            <div className="xl:col-span-4">
               <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
                 Diagrama interactivo de arquitectura dividida. El sistema autónomo opera de izquierda a derecha curando los recursos vulnerables a latencia cero.
               </p>
@@ -254,11 +254,11 @@ export default function ArchitectureFlow({ id = 'arquitectura' }) {
           </div>
         </div>
 
-        {/* LAYOUT: DIAGRAMA DIVIDIDO (SPLIT VIEW) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* LAYOUT: DIAGRAMA DIVIDIDO (SPLIT VIEW APILADO: COLUMNA EN MÓVIL/TABLET, LATERAL EN XL) */}
+        <div className="flex flex-col xl:flex-row gap-8 items-start w-full">
           
-          {/* COLUMNA IZQUIERDA (col-span-8): Diagrama de Red */}
-          <div className="lg:col-span-8 flex flex-col">
+          {/* COLUMNA IZQUIERDA (Diagrama de Red con Scroll y Soporte Táctil) */}
+          <div className="flex-1 w-full min-w-0 flex flex-col">
             <div className="relative w-full rounded-3xl bg-[#07090E] border border-white/10 shadow-2xl overflow-hidden">
               
               {/* Barra Superior Técnica */}
@@ -269,13 +269,13 @@ export default function ArchitectureFlow({ id = 'arquitectura' }) {
                     Framework de Orquestación Autocurativo en AWS
                   </span>
                 </div>
-                <span className="text-[11px] font-mono text-gray-500 hidden sm:inline-flex items-center gap-1.5">
-                  <Sparkles className="w-3 h-3 text-[#00F0FF]" /> Hover sobre nodos para inspeccionar
+                <span className="text-[11px] font-mono text-gray-500 inline-flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3 text-[#00F0FF]" /> <span className="hidden sm:inline">Hover o clic para inspeccionar</span><span className="sm:hidden">Toca un nodo</span>
                 </span>
               </div>
 
-              {/* Contenedor del Diagrama con scroll horizontal protegido */}
-              <div className="overflow-x-auto overflow-y-hidden whitespace-nowrap custom-scrollbar scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-transparent">
+              {/* Contenedor del Diagrama con scroll horizontal protegido y touch-pan-x */}
+              <div className="w-full overflow-x-auto overflow-y-hidden whitespace-nowrap custom-scrollbar scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-transparent touch-pan-x">
                 <div className="relative min-w-[2550px] h-[650px] p-6 select-none isolate">
                   
                   {/* Cuadrícula de ingeniería técnica (Grid Blueprint) */}
@@ -534,6 +534,7 @@ export default function ArchitectureFlow({ id = 'arquitectura' }) {
                     return (
                       <div
                         key={node.id}
+                        onClick={() => setHoveredNodeId(hoveredNodeId === node.id ? null : node.id)}
                         onMouseEnter={() => setHoveredNodeId(node.id)}
                         onMouseLeave={() => setHoveredNodeId(null)}
                         style={{ left: `${node.x}px`, top: `${node.y}px` }}
@@ -615,9 +616,9 @@ export default function ArchitectureFlow({ id = 'arquitectura' }) {
             </div>
           </div>
 
-          {/* COLUMNA DERECHA (col-span-4): Panel de Inspección Estático */}
-          <div className="lg:col-span-4 flex flex-col">
-            <div className="sticky top-28 w-full rounded-3xl bg-[#05080F]/90 backdrop-blur-xl border border-white/10 p-6 sm:p-8 shadow-2xl flex flex-col justify-between min-h-[600px]">
+          {/* COLUMNA DERECHA: Panel de Inspección (Ancho completo en móvil/tablet, lateral en XL) */}
+          <div className="w-full xl:w-[400px] 2xl:w-[450px] shrink-0 flex flex-col mt-4 xl:mt-0">
+            <div className="relative xl:sticky top-auto xl:top-28 w-full rounded-3xl bg-[#05080F]/90 backdrop-blur-xl border border-white/10 p-6 sm:p-8 shadow-2xl flex flex-col justify-between min-h-[460px] xl:min-h-[600px]">
               
               <AnimatePresence mode="wait">
                 {activeNode && activeDetails ? (
