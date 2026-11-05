@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap } from 'lucide-react';
 
-export default function ImpactSection() {
+export default function ImpactSection({ id = 'impacto' }) {
   return (
-    <section id="impacto" className="py-24 md:py-32 relative bg-[#050505] overflow-hidden">
+    <section id={id} className="py-24 md:py-32 relative bg-[#050505] overflow-hidden scroll-mt-24">
       {/* Subtle background ambient blur */}
       <div className="absolute top-1/2 right-10 w-[450px] h-[450px] bg-[#00F0FF]/10 rounded-full blur-[140px] pointer-events-none -z-10" />
 

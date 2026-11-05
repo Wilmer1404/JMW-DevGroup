@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { TerminalSquare, ClockAlert, ServerCrash } from 'lucide-react';
 
-export default function ProblemSection() {
+export default function ProblemSection({ id = 'problema' }) {
   const [activeCard, setActiveCard] = useState(0);
 
   const problemCards = [
@@ -30,7 +30,7 @@ export default function ProblemSection() {
   ];
 
   return (
-    <section id="problema" className="py-24 md:py-32 relative bg-[#050505]">
+    <section id={id} className="py-24 md:py-32 relative bg-[#050505] scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         
         {/* Section Header */}

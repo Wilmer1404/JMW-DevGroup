@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Server, Terminal, Database } from 'lucide-react';
 
-export default function IntegrationSection() {
+export default function IntegrationSection({ id = 'integracion' }) {
   const checkItems = [
     'Sin agentes. Sin acceso persistente.',
     'Despliegue en minutos vía CloudFormation.',
@@ -17,7 +17,7 @@ export default function IntegrationSection() {
   ];
 
   return (
-    <section id="integracion" className="py-24 md:py-32 relative bg-[#050505] overflow-hidden">
+    <section id={id} className="py-24 md:py-32 relative bg-[#050505] overflow-hidden scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           

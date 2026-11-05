@@ -13,7 +13,7 @@ import {
   Layers,
 } from 'lucide-react';
 
-export default function ArchitectureFlow() {
+export default function ArchitectureFlow({ id = 'arquitectura' }) {
   const [hoveredNodeId, setHoveredNodeId] = useState(null);
 
   // Datos técnicos específicos para cada servicio AWS según la tesis JMW DevGroup
@@ -224,7 +224,7 @@ export default function ArchitectureFlow() {
   };
 
   return (
-    <section id="arquitectura" className="py-24 md:py-32 relative bg-[#050505] overflow-hidden">
+    <section id={id} className="py-24 md:py-32 relative bg-[#050505] overflow-hidden scroll-mt-24">
       {/* Fondo con brillo tenue */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-[#00F0FF]/5 rounded-full blur-[180px] pointer-events-none -z-10" />
 

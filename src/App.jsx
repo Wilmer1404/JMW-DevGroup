@@ -37,10 +37,10 @@ function App() {
   return (
     <Layout>
       <Hero />
-      <ProblemSection />
-      <ArchitectureFlow />
-      <ImpactSection />
-      <IntegrationSection />
+      <ProblemSection id="problema" />
+      <ArchitectureFlow id="arquitectura" />
+      <ImpactSection id="impacto" />
+      <IntegrationSection id="integracion" />
     </Layout>
   );
 }

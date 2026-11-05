@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
+import Hero from './Hero';
+import ProblemSection from './ProblemSection';
+import ArchitectureFlow from './ArchitectureFlow';
+import ImpactSection from './ImpactSection';
+import IntegrationSection from './IntegrationSection';
 import FooterCTA from './FooterCTA';
 import Footer from './Footer';
 import DemoModal from './DemoModal';
@@ -14,14 +19,24 @@ export default function Layout({ children }) {
 
       {/* Main Content Area */}
       <main className="flex-grow">
-        {React.Children.map(children, (child) => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child, {
-              onOpenDemo: () => setDemoModalOpen(true),
-            });
-          }
-          return child;
-        })}
+        {children ? (
+          React.Children.map(children, (child) => {
+            if (React.isValidElement(child)) {
+              return React.cloneElement(child, {
+                onOpenDemo: () => setDemoModalOpen(true),
+              });
+            }
+            return child;
+          })
+        ) : (
+          <>
+            <Hero onOpenDemo={() => setDemoModalOpen(true)} />
+            <ProblemSection id="problema" />
+            <ArchitectureFlow id="arquitectura" />
+            <ImpactSection id="impacto" />
+            <IntegrationSection id="integracion" />
+          </>
+        )}
       </main>
 
       {/* Call to Action Section */}
