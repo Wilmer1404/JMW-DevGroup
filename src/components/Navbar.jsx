@@ -41,9 +41,10 @@ export default function Navbar({ onOpenDemo }) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <button
-          type="button"
-          onClick={() => {
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
             if (window.location.hash) {
               window.location.hash = '';
               setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
@@ -51,24 +52,14 @@ export default function Navbar({ onOpenDemo }) {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }
           }}
-          className="flex items-center gap-2.5 group cursor-pointer text-left focus:outline-none"
+          className="flex items-center cursor-pointer focus:outline-none"
         >
-          {/* Custom Cyan Tech Emblem */}
-          <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-[#00F0FF]/20 to-transparent border border-[#00F0FF]/40 group-hover:border-[#00F0FF] transition-all duration-300 shadow-[0_0_15px_rgba(0,240,255,0.25)]">
-            <svg
-              viewBox="0 0 24 24"
-              className="w-4 h-4 text-[#00F0FF]"
-              fill="currentColor"
-            >
-              <rect x="5" y="3" width="5" height="18" rx="2.5" />
-              <rect x="14" y="9" width="5" height="12" rx="2.5" opacity="0.8" />
-            </svg>
-          </div>
-          <div className="flex items-center tracking-tight text-lg">
-            <span className="font-extrabold text-white">JMW</span>
-            <span className="font-normal text-gray-400 ml-1.5">DevGroup</span>
-          </div>
-        </button>
+          <img
+            src="/image/jmw.svg"
+            alt="JMW DevGroup Logo"
+            className="h-8 w-auto md:h-10 object-contain"
+          />
+        </a>
 
         {/* Center Nav Links */}
         <div className="hidden md:flex items-center gap-9 text-sm text-gray-300 font-medium">
