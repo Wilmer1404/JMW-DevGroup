@@ -13,6 +13,13 @@ function App() {
   const [currentHash, setCurrentHash] = useState(window.location.hash);
 
   useEffect(() => {
+    // Restaurar visibilidad suavemente eliminando FOUC y parpadeo de fuentes
+    document.body.style.visibility = 'visible';
+    document.body.style.opacity = '1';
+    document.body.style.transition = 'opacity 0.3s ease-in';
+  }, []);
+
+  useEffect(() => {
     const handleHashChange = () => {
       setCurrentHash(window.location.hash);
       window.scrollTo(0, 0);

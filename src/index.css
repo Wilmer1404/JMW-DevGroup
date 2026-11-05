@@ -99,6 +99,9 @@
   }
 
   /* Custom horizontal scrollbar for diagram */
+  .custom-scrollbar {
+    -webkit-overflow-scrolling: touch;
+  }
   .custom-scrollbar::-webkit-scrollbar {
     height: 7px;
   }

@@ -274,8 +274,11 @@ export default function ArchitectureFlow({ id = 'arquitectura' }) {
                 </span>
               </div>
 
-              {/* Contenedor del Diagrama con scroll horizontal protegido y touch-pan-x */}
-              <div className="w-full overflow-x-auto overflow-y-hidden whitespace-nowrap custom-scrollbar scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-transparent touch-pan-x">
+              {/* Contenedor del Diagrama con scroll horizontal fluido y libre desplazamiento vertical */}
+              <div 
+                className="w-full overflow-x-auto overflow-y-hidden whitespace-nowrap custom-scrollbar scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-transparent [-webkit-overflow-scrolling:touch]"
+                style={{ WebkitOverflowScrolling: 'touch' }}
+              >
                 <div className="relative min-w-[2550px] h-[650px] p-6 select-none isolate">
                   
                   {/* Cuadrícula de ingeniería técnica (Grid Blueprint) */}

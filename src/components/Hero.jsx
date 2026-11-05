@@ -54,14 +54,14 @@ export default function Hero({ onOpenDemo }) {
 
       {/* Contenedor Principal Centrado con espaciado equilibrado */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 lg:pt-16 pb-8">
-        <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center justify-center w-full">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center justify-center w-full">
           
-          {/* Lado Izquierdo: Textos y CTAs */}
+          {/* Lado Izquierdo: Textos y CTAs (Primero en móvil y escritorio) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full lg:col-span-6 flex flex-col items-start justify-center lg:pt-6"
+            className="w-full lg:col-span-6 flex flex-col items-start justify-center lg:pt-6 order-1 lg:order-1"
           >
             {/* Badge superior */}
             <div className="inline-flex items-center gap-2.5 mb-6 lg:mb-7">
@@ -132,12 +132,12 @@ export default function Hero({ onOpenDemo }) {
             </div>
           </motion.div>
 
-          {/* Lado Derecho: Diagrama Orbital con SVGs Oficiales */}
+          {/* Lado Derecho: Diagrama Orbital con SVGs Oficiales (Segundo en móvil) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full lg:col-span-6 relative flex items-center justify-center min-h-[420px] sm:min-h-[500px] lg:min-h-[560px]"
+            className="w-full lg:col-span-6 relative flex items-center justify-center min-h-[380px] sm:min-h-[480px] lg:min-h-[560px] order-2 lg:order-2"
           >
             {/* Contenedor del escenario orbital escalable para móviles */}
             <div className="relative w-full max-w-[540px] h-[520px] flex items-center justify-center pause-on-hover scale-75 sm:scale-90 lg:scale-100 origin-center transition-transform duration-300">
