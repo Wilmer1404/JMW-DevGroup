@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap oficial de JMW DevGroup
+Sitemap: https://www.jmwdevgroup.online/sitemap.xml
